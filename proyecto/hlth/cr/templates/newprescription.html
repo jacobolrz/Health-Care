@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <title>Registro doctores</title>
+    </head>
+
+    <body>
+        <h1> Create a new pokemon </h1>
+        <form action = "" method = "post">
+            {% csrf_token %}
+            <table>
+                {{form_create_prescription}}
+
+            </table>
+            <br>
+            <button type = "submit">Crear Pokemon</button>
+        </form>
+        <p>{{message}}</p>
+    </body>
+</html>
