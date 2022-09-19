@@ -50,5 +50,10 @@ class PatientForm(UserCreationForm):
 
 class CreateAppointment(forms.ModelForm):
     class Meta:
-        model = Appointment
+        model = Newprescription
+        fields = "__all__"
+
+class UpdateAppointment(forms.ModelForm):
+    class Meta:
+        model = Newprescription
         fields = "__all__"

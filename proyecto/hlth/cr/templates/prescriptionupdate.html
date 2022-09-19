@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>Update prescription/title>
+    </head>
+
+    <body>
+        <h1> Edit prescription {{patient.patient_username}} </h1>
+
+        <form action = "" method = "post">
+
+            {% csrf_token %}
+            <table>
+                {{formulario}}
+    
+            </table>
+            <br>
+            <button type = "submit">Edit prescription</button>
+        </form>
+    </body>
+</html>

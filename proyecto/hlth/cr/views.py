@@ -9,6 +9,7 @@ from .forms import *
 from .models import *
 from django.db.models import F
 from django.http import HttpResponse, HttpResponseRedirect
+from .filters import OrderFilter
 
 # Create your views here.
 def home(request): 
@@ -61,3 +62,25 @@ def create_prescription(request):
             data_result['message'] = "Formulario no valido"
     print(data_result)
     return render(request,'newprescription.html',data_result)
+
+def view_prescription_list(request):
+    current_user = request.user
+    prescription = Newprescription.objects.filter(doctor_username = current_user)
+    data_result = {'prescription_list': prescription}
+    return render (request, 'myprescriptions.html', data_result )
+
+def show_prescription(request,newprescription_id):
+	newprescription = Newprescription.objects.get(pk=newprescription_id)
+	return render(request, 'show_prescription.html', 
+		{'newprescription': newprescription})
+
+
+
+def update_prescription(request, newprescription_id):
+    newprescription = Newprescription.objects.get(pk=newprescription_id)
+    form = CreateAppointment(request.POST or None, instance = newprescription)
+    if form.is_valid():
+        form.save()
+        return redirect('myprescriptions')
+    return render(request, 'update_prescription.html', 
+		{'newprescription': newprescription, 'form':form})

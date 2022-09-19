@@ -23,4 +23,8 @@ urlpatterns = [
     path('profilepage/',views.profile,name='profile'),
     path('profilepage/<str:username>/',views.profile,name='profile'),
     path('newprescription/', views.create_prescription, name='newprescription'),
+    path('myprescriptions/',views.view_prescription_list,name='myprescriptions'),
+    path('myprescriptions/show_prescription/<newprescription_id>',views.show_prescription, name= 'show_prescription'),
+    path('myprescriptions/update_prescription/<newprescription_id>',views.update_prescription, name= 'update_prescription'),
+    path('prescriptionupdate/<int:newprescription_id>',views.update_prescription,name='prescriptionupdate'),    
 ]

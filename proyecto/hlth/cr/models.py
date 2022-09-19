@@ -28,6 +28,7 @@ class Prescriptions(models.Model):
 class Newprescription(models.Model):
     prescription = models.ForeignKey(Prescriptions, on_delete=models.CASCADE)
     date = models.DateTimeField(default=timezone.now)
+    doctor_username = models.CharField(max_length=50)
     patient_username = models.CharField(max_length=50)
     weight = models.CharField(max_length=5)
     symptoms = models.CharField(max_length=500)
@@ -54,6 +55,13 @@ class Patient(models.Model):
     phone_number = models.CharField(max_length=20)
     birthday_year = models.CharField(max_length=4)
     Allergies = models.CharField(max_length=100)
+
+class Costumer(models.Model):
+    user = models.OneToOneField(User, null= True, on_delete=models.CASCADE)
+    phone_number = models.CharField(max_length=20)
+    location = models.CharField(max_length=100)
+    medical_speciality = models.CharField(max_length=50)
+    license = models.CharField(max_length=50)
 
 
 
