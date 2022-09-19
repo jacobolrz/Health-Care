@@ -3,9 +3,10 @@
 	<h2>@{{ user.username }}</h2>
 
 	{% if request.user.is_authenticated %}
-        {% if Profile.user_type == 'Doctor' %}
+        {% if request.profile.user_type == 'Doctor' %}
+			fggh
             <td style="font-size: 15px; font-family: sans-serif" >Username</td>
-            {% endif %} 
+        {% endif %} 
 		{% if user.username != request.user.username %}
             
 			{% if user not in request.user.profile.following %}
