@@ -1,0 +1,41 @@
+<html>
+    
+    <head>
+        <title>My prescriptions</title>
+    </head>
+    <body>
+        <h1> List of my prescriptions </h1>
+
+        
+        <table>
+            <div class="container text-white">
+                <div class="jumbotron border shadow">
+                    <div class="row">
+                        <div class="col-md-8 offset-2">
+                            <form>
+                                <div class="input-group">
+                                    <input name="q" type="text" placeholder="Search" class="form-control form-control-lg" />
+                                    <div class="input-group-append">
+                                        <button class="btn btn-dark btn-lg">Search</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            <tr>
+                <th>Patient Name</th>
+                <th>Prescription Date</th>
+            </tr>
+            {% for pre in prescription_list %}
+            <tr>
+                <td><a href="show_prescription/{{pre.id}}">  {{pre.patient_username}}</a></td>
+                <td>{{pre.date}}</td>
+                <td align="right"><a href="update_prescription/{{pre.id}}">Update</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
+
