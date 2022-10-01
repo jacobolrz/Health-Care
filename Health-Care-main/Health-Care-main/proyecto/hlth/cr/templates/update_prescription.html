@@ -1,0 +1,41 @@
+
+<h1>Update prescription </h1>
+<br/>
+<form action=" " method ="post">
+    {% csrf_token %}
+
+    <div style="display: none;">
+        {{form.date.label_tag}}
+        {{form.date}}
+    </div> 
+
+    <div style="display: none;">
+        {{form.doctor_username.label_tag}}
+        {{form.doctor_username}}
+    </div> 
+
+    <div class="form-field">
+    {{form.patient_username.label_tag}}
+    {{form.patient_username}}
+    </div> 
+
+    <div class="form-field">
+        {{form.weight.label_tag}}
+        {{form.weight}}
+    </div> 
+
+    <div class="form-field">
+        {{form.symptoms.label_tag}}
+        {{form.symptoms}}
+    </div> 
+
+    <div class="form-field">
+        {{form.prescription.label_tag}}
+        {{form.prescription}}
+    </div> 
+
+
+
+
+    <input type="submit" value="Update" class = "btn btn-secondary">
+    
