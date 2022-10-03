@@ -20,7 +20,7 @@ class profileForm(forms.ModelForm):
         model = Profile
         fields = ['contact_info', 'user_type']    
         labels = {
-                "contact_info": _("Contact info"),
+                "contact_info": _("Telephone"),
                 "user_type": _("User type"),
                 } 
 
@@ -57,3 +57,9 @@ class UpdateAppointment(forms.ModelForm):
     class Meta:
         model = Newprescription
         fields = "__all__"
+
+
+class SearchPrescriptionForm(forms.ModelForm):
+    class Meta:
+        model = Newprescription
+        fields = ['patient_username']

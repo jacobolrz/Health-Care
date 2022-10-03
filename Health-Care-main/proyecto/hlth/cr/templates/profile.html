@@ -1,3 +1,11 @@
+{% load static %}
+<!DOCTYPE>
+<html>
+<head>
+    <title> Health Care Home</title>
+    <link rel="stylesheet" href="{% static 'homepstyle.css' %}">
+</head>
+<body>
 <div class="profile">
 	<img src="{{ user.profile.image.url }}">
 	<h2>@{{ user.username }}</h2>
@@ -20,3 +28,42 @@
 	
 	
 </div>
+
+<div class="container">
+<div class="circulo"><img src="{% static 'imgdoc.jpg' %}" class="imagen-de-perfil"></div>
+
+<form action="#" method="POST" class="user-info-profile">
+ <input class="nombre" value="Dr Haces "/>
+ <input class="apellido" value="Caso"/>
+ <input class="tel" value="5558798649"/>
+ <input class="especialidad" value="Optometría"/>
+ <input type="submit" value="Actualizar Datos"/>
+</form>
+<a href="{% url 'home' %}" class="boton-1">Salir</a>
+</div>
+
+<table>
+
+<tr>
+<th>
+Fecha
+</th>
+<th>Nombre</th>
+<th>Codigo de Paciente</th>
+</tr>
+<tr>
+
+<tr>
+<td>1/oct/2022</td>
+<td>Dr Haces caso</td>
+<td>564465454</td>
+</tr>
+
+</tr>
+
+</table>
+
+
+
+</body>
+</html>

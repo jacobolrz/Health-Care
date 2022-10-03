@@ -28,5 +28,7 @@ urlpatterns = [
     path('myprescriptions/update_prescription/<newprescription_id>',views.update_prescription, name= 'update_prescription'),
     path('prescriptionupdate/<int:newprescription_id>',views.update_prescription,name='prescriptionupdate'),    
     path('search-prescriptions/', views.BlogSearchView.as_view(), name='search_prescriptions'),
+    path('myprescriptions/deleteprescription/<int:newprescription_id>',views.delete_prescription, name ='deleteprescription'),
+    path('searchprescriptions',views.search_prescription, name ='searchprescriptions'),
     path('login/',views.login, name='login' )
 ]

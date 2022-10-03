@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="{% static 'homepstyle.css' %}">
 </head>
 <body>
-<form method="POST" action="">
+<div class="fondo-1">
+<form method="POST" action="" class="container">
     {% csrf_token %}
         <h3>Register Profile</h3>
 
@@ -54,8 +55,8 @@
     <a class="boton-1" href="{% url 'home' %}"><span></span>regresar</a>
     <br>
         {{form.non_field_errors}}
-    <p>Already have an account? <a href="{}">Login</a></p>
+    <p>¿Ya tienes una cuenta? <a class="boton-1" href="{% url 'login' %}">Login</a></p>
 </form>
-
+</div>
 </body>
 </html>

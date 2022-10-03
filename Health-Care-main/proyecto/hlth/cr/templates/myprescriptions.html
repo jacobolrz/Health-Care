@@ -3,6 +3,7 @@
     <head>
         <title>My prescriptions</title>
     </head>
+    <a style = "font-family: sans-serif; font-size: smaller;" href="{% url 'searchprescriptions' %} "> Buscar Productos </a>
     <body>
         <h1> List of my prescriptions </h1>
 
@@ -33,6 +34,7 @@
                 <td><a href="show_prescription/{{pre.id}}">  {{pre.patient_username}}</a></td>
                 <td>{{pre.date}}</td>
                 <td align="right"><a href="update_prescription/{{pre.id}}">Update</a></td>
+                <td> <a style="font-size: 15px; font-family: sans-serif" href="deleteprescription/{{pre.id}}"> Delete prescription </a></td>
             </tr>
             {% endfor %}
         </table>
