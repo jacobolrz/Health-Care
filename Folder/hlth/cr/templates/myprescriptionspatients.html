@@ -1,0 +1,23 @@
+<html>
+    
+    <head>
+        <title>My prescriptions</title>
+    </head>
+   
+        <h1> List of my prescriptions </h1>
+
+        
+        <table>
+            <tr>
+                <th>Doctor Name</th>
+                <th>Prescription Date</th>
+            </tr>
+            {% for pre in prescription_list_patients %}
+            <tr>
+                <td><a href="show_prescription/{{pre.id}}">  {{pre.user.first_name}} {{pre.user.last_name}}</a></td>
+                <td>{{pre.date}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

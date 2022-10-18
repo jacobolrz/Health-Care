@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="{% static 'homepstyle.css' %}">
+    <title>Health Everywhere Portal | Login</title>
+</head>
+    <body>
+        <div class="banner">
+         <div class="navbar">
+            <img src="{% static 'healcarelogo.png' %}" class="logo">
+            <ul>
+                <li><a href='{% url "home" %}'>Inicio</a></li>
+                <li><a href='{% url "register" %}'>Registrate</a></li>
+                <li><a href='{% url "login" %}'>Iniciar Sesión</a></li>
+            </ul> 
+        </div>
+
+    <div class="content">
+            <h1>HEALTH EVERYWHERE PORTAL LOGIN </h1>
+            <P> Ingresa tu usuario y contraseña para comenzar a disfrutar de Health Everywhere</p>
+    <div>
+ 
+ <form action = "" method = "post" class="container">
+            {% csrf_token %}
+            <table>
+                <tr> 
+                    <td style="font-size: 15px; font-family: sans-serif" >Username</td>
+                    <td> {{form.username}} </td>
+                </tr>
+                <tr> 
+                    <td style="font-size: 15px; font-family: sans-serif" >Password</td>
+                    <td> {{form.password}} </td>
+                </tr>
+            </table>
+        <br>
+        <button type = "submit">ENTRAR</button>
+        <button type="button" onclick="location.href='{% url 'home' %}'"><span></span>REGRESAR</button>
+        </form>
+        <br>
+        
+    </body>
+    </div>  
+</html>

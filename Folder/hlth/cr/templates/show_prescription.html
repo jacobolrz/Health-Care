@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+     <link rel="stylesheet" href="{% static 'homepstyle.css' %}">
+    <title>Nueva Prescipción Portal</title>
+</head>
+<body class="banner">
+  
+  <div class="d-flex justify-content-around navbar"> 
+              <img src="{% static 'healcarelogo.png' %}" class="logo">
+            <ul class="">
+                <li><a href='{% url "home" %}'>Inicio</a></li>
+                <li><a href='{% url "profile" %}'>Perfil</a></li>  
+            </ul>    
+    </div>
+      <div class="container justify-content-center">
+          
+             <div class="row">
+            <div class="col-6">
+               <div class="">Prescription</div>
+      
+         <h5 class="">{{ Newprescription }}</h5>
+   
+  
+            <ul>
+   
+              <li>  Fecha de creacion de Prescripción: {{ newprescription.date }}</li>
+               <li> Nombre de Doctor: {{ newprescription.user.first_name }} {{ newprescription.user.last_name }}</li>
+               <li> Nombre de Paciente: {{ newprescription.patient_username }}</li>
+               <li> Peso: {{ newprescription.weight }}</li>
+               <li> Sintomas: {{ newprescription.symptoms }}</li>
+               <li> Prescripción: {{ newprescription.prescription }}</li>
+         </ul>
+       </div>
+             <div class="col-6">
+                    <p>Escribe en la siguiente caja de texto la oracion que requieres y el idioma a escoger</p>
+          
+                 <form action = "" method="post">
+                 {% csrf_token %}
+                 <p> Pon Aqui el texto a traducir </p>
+                 {{translateform.text_to_translate}}
+                 <p> Translate from</p>
+                 {{translateform.language_code_origin}}
+                 <p> to</p>
+                 {{translateform.language_code_destiny}}
+
+                    <button class="">TRANSLATE</button>
+           
+                 </form>
+                 <p>{{responsetranslate}} </p>
+   
+             </div>
+       </div>
+       </div>
+ 
+ <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </body>

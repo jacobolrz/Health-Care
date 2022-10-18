@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE>
+<html>
+<head>
+    <title> Health Care Registration</title>
+    <link rel="stylesheet" href="{% static 'homepstyle.css' %}">
+</head>
+<body>
+ <div class="banner">
+         <div class="navbar">
+            <img src="{% static 'healcarelogo.png' %}" class="logo">
+            <ul>
+                <li><a href='{% url "home" %}'>Inicio</a></li>
+                <li><a href='{% url "register" %}'>Registrate</a></li>
+                <li><a href='{% url "login" %}'>Iniciar Sesión</a></li>
+            </ul> 
+        </div>
+
+<form method="POST" action="" class="container">
+    {% csrf_token %}
+        <h3>Register Profile</h3>
+
+        <div class="form-field">
+            {{form.first_name.errors}}
+            {{form.first_name.label_tag}}
+            {{form.first_name}}
+        </div>
+        <div class="form-field">
+            {{form.last_name.errors}}
+            {{form.last_name.label_tag}}
+            {{form.last_name}}
+        </div>
+        <div class="form-field">
+            {{form.username.errors}}
+            {{form.username.label_tag}}
+            {{form.username}}
+        </div>
+        <div class="form-field">
+            {{form.email.errors}}
+            {{form.email.label_tag}}
+            {{form.email}}
+        </div>
+        <div class="form-field">
+            {{profile_form.contact_info.label_tag}}
+            {{profile_form.contact_info}}
+        </div>
+        <div class="form-field">
+            {{profile_form.user_type.label_tag}}
+            {{profile_form.user_type}}
+        </div>
+        <div class="form-field">
+            {{form.password1.errors}}
+            {{form.password1.label_tag}}
+            {{form.password1}}
+        </div>
+        <div class="form-field">
+            {{form.password2.errors}}
+            {{form.password2.label_tag}}
+            {{form.password2}}
+        </div>
+
+    <hr>
+    <input id="form-button" class="btn btn-success btn-block" type="submit" value="Create Profile">
+    <button type="button" onclick="location.href='{% url 'home' %}'"><span></span>REGRESAR</button>    <br>
+        {{form.non_field_errors}}
+    <p>¿Ya tienes una cuenta? <button type="button" onclick="location.href='{% url 'login' %}'"><span></span>INICIA SESIÓN</p>
+</form>
+
+</body>
+</html>
