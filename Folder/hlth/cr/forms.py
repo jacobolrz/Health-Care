@@ -14,23 +14,32 @@ class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username','email','first_name','last_name','password1','password2']
+        labels = {
+            'first_name': 'Nombre',
+            'last_name': 'apellido',
+            'email': 'correo',
+            'password1': 'contraseña',
+            'password2': 'confirmacion de contraseña',
+        }
 
 class profileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['user_type']    
         labels = {
-                "user_type": _("User type"),
+                "user_type": _("Tipo de Usuario"),
                 } 
 
 class AuthenticationUserForm(AuthenticationForm):
     class Meta:
         model = User
         fields = ['username', 'password']
+      
 
 class Createnewprescription(forms.ModelForm):
     class Meta:
         model = Createprescription
+        widgets = {'symptoms': Textarea(attrs= {'cols': 50, 'rows': 7}), 'prescription': Textarea(attrs= {'cols': 50, 'rows': 7})}
         exclude = ['user']
 
 
@@ -51,11 +60,13 @@ class CreateAppointment(forms.ModelForm):
     class Meta:
         model = Createprescription
         fields = "__all__"
+        widgets = {'symptoms': Textarea(attrs= {'cols': 50, 'rows': 7}), 'prescription': Textarea(attrs= {'cols': 50, 'rows': 7})}
 
 class UpdateAppointment(forms.ModelForm):
     class Meta:
         model = Createprescription
         fields = "__all__"
+
 
 
 class SearchPrescriptionForm(forms.ModelForm):
@@ -79,5 +90,5 @@ class CreateDoctorForm(forms.ModelForm):
 class TranslateTextsForm(forms.ModelForm):
     class Meta:
         model = TranslateTexts
-        widgets = {'text_to_translate': Textarea(attrs= {'cols': 80, 'rows': 10})}
-        fields = ['text_to_translate','language_code_destiny', 'language_code_origin']
+        widgets = {'text_to_translate': Textarea(attrs= {'cols': 50, 'rows': 8})}
+        fields = ['language_code_destiny', 'language_code_origin']

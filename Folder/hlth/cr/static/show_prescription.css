@@ -1,0 +1,17 @@
+
+
+.taductorCampos {
+    display: flex;
+}
+.taductorCampos {
+margin: 0;
+padding: 0;
+}
+
+
+ul.dataPrescription li {
+text-align: left;
+margin-bottom: 1rem;
+color: #efeded;
+}
+

@@ -42,7 +42,7 @@ class Createprescription(models.Model):
     date = models.DateTimeField(default=timezone.now)
     user= models.ForeignKey(User,on_delete=models.CASCADE, null=True)
     patient_username = models.CharField(max_length=50)
-    weight = models.CharField(max_length=5)
+    weight = models.IntegerField()
     symptoms = models.CharField(max_length=500)
     prescription = models.CharField(max_length=500)
     deleted_date = models.DateTimeField(blank=True, null=True)

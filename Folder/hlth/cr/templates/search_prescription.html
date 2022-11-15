@@ -5,10 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="{% static 'homepstyle.css' %}">
-    <title>Health Everywhere Portal | Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'homepstyle.css' %}">
+    <link rel="stylesheet" href="{% static 'searchprescription.css' %}">
+    <title>Buscador de Prescripciones</title>
 </head>
     <body>
+    <div  class="content">
      <div class="banner">
          <div class="navbar">
             <img src="{% static 'healcarelogo.png' %}" class="logo">
@@ -19,44 +22,58 @@
             </ul> 
         </div>
 
-    <div class="content">
             <h1>BUSCA PRESCRIPCIONES </h1>
             <P> Ingresa el usuario del paciente para encontrar sus prescripciones </p>
     <div>
  
-
-<form action = "" method = "post" class="container">
-    {% csrf_token %}
-    <table>
-        <tr>
-            <td style="font-size: 15px; font-family: sans-serif" >Patient username</td>
-            <td> {{ prescriptionsearch_form.patient_username }} </td>
-        </tr>
-    </table>
-    <br>
-    <button type = "submit">BUSCAR</button>
-</form>
-<br>
+    <form action = "" method = "post" class="container">
+        {% csrf_token %}
+            <div>
+                <div style="font-size: 15px; font-family: sans-serif" ><p>Usuario del Paciente</p></div>
+                <div class="espacio-abajo"> {{ prescriptionsearch_form.patient_username }} </div>
+            
+           <div class="botonera">
+            <button type="button" style="padding-right: 2rem;" onclick="location.href='{% url 'profile' %}'">REGRESAR</button>
+            <button type = "submit">BUSCAR</button>
+                </div>
+           </div>
+    </form>
 
 {% if empty_search %}
-<h3 style="font-size: 12px; font-family: sans-serif; color:red;"> No se ha encontrado o buscado nada aun </h3>
+<h3 class="text-danger"> No se ha encontrado o buscado nada aun </h3>
 {% else %}
 
-<table>
-    <tr>
-        <th style = "font-family: sans-serif;" > Nombre del Paciente </th>
-        <th style = "font-family: sans-serif;" > Fecha de la Prescripción</th>
-    </tr>
+        <div class="container bg-light mt-5">
+            <table class="table table-striped">
+             <thead>
+             <tr>
+                <th> Nombre del Paciente </th>
+                <th> Fecha de la Prescripción</th>
+                 <th> Nombre del Doctor</th>
+            </tr>
+            </thead>
     {% for newprescription in prescription_list %}
     <tr>
         <td><a href="profilepage/show_prescription/{{newprescription.id}}"> {{newprescription.patient_username}}</a></td>
         <td> {{newprescription.date}}</td>
+        <td> {{newprescription.user}}</td>
+
     </tr>
     {%endfor%}
-</table>
+     </table>
 {% endif%}
-<br>
-<button type="button" onclick="location.href='{% url 'profile' %}'">REGRESAR</button>
 
+</div>
+<!--Inicio de chatBot-->
+         <div id="flotante">	
+                                        <button class="open-button btn btn-primary btn-lg" onclick=openForm()>CHATBOT</button>	
+								<div class="chat-popup" id="chatbotpanel" style="position:relative; width:300px; height:400px;">
+									<button type="button" class="btn_cancel bg-danger" onclick=closeForm()><i class="fa-solid fa-circle-xmark"></i>X</button>
+                                    <iframe src='https://webchat.botframework.com/embed/dsccoglanguage-botheverywhere?s=eSe1onPlXi0.KOtZ9czdBnaKj_6wYzoLba2ixAai_HIteHSvIg_8Eqo'  width="100%" height="100%"></iframe>                
+
+                
+								 </div><!--Cierre de Chatbot-->
+                                  <script src="/static/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 </html>

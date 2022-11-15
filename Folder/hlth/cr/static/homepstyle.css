@@ -1,14 +1,35 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-}
-.banner{
-    width: 100%;
-    height: 100vh;
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+    font-family: 'Open Sans', sans-serif;
+    margin:0px;
+    padding: 0px;
+    
+  }
+
+.content{
     background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(imgdoc.jpg);
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 100vh;
+
+}
+
+.banner-autenticado{
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(imgdoc2.jpg);
+    background-size: cover;
+    background-position: center;
+
+}
+
+.banner-autenticado  .navbar img {
+    width: 160px;
+    max-width: 160px;
 }
 .navbar{
     width:85%;
@@ -57,18 +78,20 @@
 
 .content{
     width: 100%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    
+    text-align: center;
+    color: #fff
+}
+.content-autenticado{
+    width: 100%;
     text-align: center;
     color: #fff
 }
 
-.content h1{
-    font-size: 70px;
-    margin-top:80px;
+.content h1, .content-autenticado h1{
+    font-size: 3.6rem;
 }
-.content p{
+.content p, .content-autenticado p{
     margin: 20px auto;
     font-weight:100;
     line-height: 25px;
@@ -127,7 +150,147 @@ button:hover span{
     align-content: center;
     align-items: center;
     flex-direction: column;
+    
 }
 table a {
     text-decoration: none;
 }
+
+label{
+    display: inline-block;
+    width: 80px;
+  }
+
+  form.container {
+
+    display: grid;
+}
+form.container .form-field {
+
+    display: flex;
+    justify-content: start;
+    margin: 1rem 0rem;
+    
+}
+form.container .form-field input, form.container .form-field textarea, #id_username, #id_password, #id_user_type, #form-button {
+    box-shadow: 2px 2px #888888;
+    width: 70%;
+    align-items: flex-end;
+    border-radius: 7px;
+}
+form.container .form-field input, #id_username, #id_password, #id_user_type, #form-button {
+    text-align: center;
+    font-size: 1.3rem;
+    height: 3rem;
+
+}
+form.container .form-field label {
+width: 30%;
+
+}
+
+body > div > div > div:nth-child(4) {
+    padding-bottom: 10em;
+}
+
+
+
+
+
+
+.open-button {
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 80px;
+
+}
+
+.form-container {
+    max-width: 300px;
+    padding: 10px;
+}
+
+.chat-popup {
+    display: none;
+    bottom: 0px;
+    right: 15px;
+    height: 500px;
+    border: 1px solid #cac1c1;
+    z-index: 9;
+}
+
+.chatbot-window {
+    min-height: 400px;  
+}
+
+.btn_cancel {
+    background-color: rgba(235, 201, 246, 0);
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 10;
+    position: center;
+    bottom: 500px;
+    right: 80px;
+    width: 280px;
+}
+
+
+/*Comenzamos con los estilos del chatbot*/
+#flotante {
+    z-index:999;
+    position: fixed;
+    top: 85vh;
+    }
+
+	.open-button {
+		
+		color: white;
+		padding: 15px 20px;
+		border: none;
+		cursor: pointer;
+		width: 161px;
+
+	  }
+   
+   .form-container {
+		max-width: 300px;
+		padding: 10px;
+		background-color: rgb(208, 133, 190);
+   }
+   
+   .chat-popup {
+		display: none;
+        flex-direction: column;
+		height: 500px;
+		border: none;
+		z-index: 9;
+            align-items: start;
+    justify-content: end;
+	  }
+   
+   .chatbot-window {
+		min-height: 300px;  
+	  }
+   
+   .btn_cancel {
+    
+    align-items: end;
+    justify-content: end;
+    z-index: 999;
+    display: inline;
+    width:100px;
+    margin-top:15px;
+    left:0;
+    bottom: 0;
+    
+		background-color: #0d6efd;
+		color: white;
+		padding: 15px 20px;
+		border: none;
+		cursor: pointer;
+		
+	  }
+      

@@ -8,9 +8,10 @@
      <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
      <link rel="stylesheet" href="{% static 'homepstyle.css' %}">
+     <link rel="stylesheet" href="{% static 'show_prescription.css' %}">
     <title>Nueva Prescipción Portal</title>
 </head>
-<body class="banner">
+<body class="content">
   
   <div class="d-flex justify-content-around navbar"> 
               <img src="{% static 'healcarelogo.png' %}" class="logo">
@@ -19,38 +20,40 @@
                 <li><a href='{% url "profile" %}'>Perfil</a></li>  
             </ul>    
     </div>
-      <div class="container justify-content-center">
+      <div class="container justify-content-start">
           
-             <div class="row">
+             <div class="row justify-content-start">
             <div class="col-6">
-               <div class="">Prescription</div>
+               <div class="">Prescripción del Paciente</div>
       
          <h5 class="">{{ Newprescription }}</h5>
    
   
-            <ul>
+            <ul class="dataPrescription">
    
               <li>  Fecha de creacion de Prescripción: {{ newprescription.date }}</li>
                <li> Nombre de Doctor: {{ newprescription.user.first_name }} {{ newprescription.user.last_name }}</li>
                <li> Nombre de Paciente: {{ newprescription.patient_username }}</li>
-               <li> Peso: {{ newprescription.weight }}</li>
+               <li> Peso: {{ newprescription.weight }} kg.</li>
                <li> Sintomas: {{ newprescription.symptoms }}</li>
                <li> Prescripción: {{ newprescription.prescription }}</li>
          </ul>
        </div>
              <div class="col-6">
-                    <p>Escribe en la siguiente caja de texto la oracion que requieres y el idioma a escoger</p>
+                    <p>Si deseas traducir los sintomas de la prescripcion, escoge el idioma origen y al lenguaje que quieres traducir </p>
           
                  <form action = "" method="post">
                  {% csrf_token %}
-                 <p> Pon Aqui el texto a traducir </p>
+               
                  {{translateform.text_to_translate}}
-                 <p> Translate from</p>
+                 <div class="traductorCampos">
+                 <p> Traducir de</p>
                  {{translateform.language_code_origin}}
-                 <p> to</p>
+                 <p> a</p>
                  {{translateform.language_code_destiny}}
+                 </div>
 
-                    <button class="">TRANSLATE</button>
+                    <button class="">TRADUCIR</button>
            
                  </form>
                  <p>{{responsetranslate}} </p>
@@ -58,7 +61,16 @@
              </div>
        </div>
        </div>
- 
+ <!--Inicio de chatBot-->
+         <div id="flotante">	
+                                        <button class="open-button btn btn-primary btn-lg" onclick=openForm()>CHATBOT</button>	
+								<div class="chat-popup" id="chatbotpanel" style="position:relative; width:300px; height:400px;">
+									<button type="button" class="btn_cancel bg-danger" onclick=closeForm()><i class="fa-solid fa-circle-xmark"></i>X</button>
+                  <iframe src='https://webchat.botframework.com/embed/dsccoglanguage-botheverywhere?s=eSe1onPlXi0.KOtZ9czdBnaKj_6wYzoLba2ixAai_HIteHSvIg_8Eqo'  width="100%" height="100%"></iframe>                
+
+                
+								 </div><!--Cierre de Chatbot-->
+                                  <script src="/static/app.js"></script>
  <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </body>

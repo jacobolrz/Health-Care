@@ -1,0 +1,36 @@
+.content {
+    position: unset;
+    height: unset;
+}
+
+table  tbody tr input,  table  tbody tr td  {
+    margin-bottom: 2rem;
+}
+input {
+    text-align: center;
+    font-weight: 1.3rem;
+    box-shadow: 2px 2px #888888;
+    width: 100%;
+    align-items: flex-end;
+    border-radius: 7px;
+    height: 3.5rem;
+}
+button {
+    width: 200px;
+}
+td p {
+    margin-bottom: -2rem;
+    line-height: 0;
+}
+.espacio-abajo {
+    margin-bottom: 3rem;
+}
+.botonera {
+display: flex;
+justify-content: space-between;}
+.botonera button {
+ width: 90%;
+ margin-left: 1rem;
+    border-radius: 7px;
+    padding: 1rem;
+}

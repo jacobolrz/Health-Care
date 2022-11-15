@@ -161,7 +161,7 @@ def translate (request, createprescription_id):
         print(request.POST)
         print(request.POST.get('language_code_origin'))
         print(request.POST.get('language_code_destiny'))
-        print(request.POST.get('text_to_translate'))
+
         # Add your key and endpoint
         key = "30bb7b15b98742389f3b2397f59218e6"
         endpoint = "https://api.cognitive.microsofttranslator.com"
@@ -188,7 +188,7 @@ def translate (request, createprescription_id):
 
         # You can pass more than one object in body.
         body = [{
-            'text': request.POST.get('text_to_translate')
+            'text': newprescription.symptoms
         }]
 
         translate = requests.post(constructed_url, params=params, headers=headers, json=body)

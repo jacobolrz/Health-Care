@@ -1,0 +1,14 @@
+.content{
+    height: unset;
+}
+
+label {
+    margin-right: 1.5rem;
+}
+input {
+text-align: center;
+}
+textarea {
+    padding:1rem;
+    font-size: 1.3rem ;
+}

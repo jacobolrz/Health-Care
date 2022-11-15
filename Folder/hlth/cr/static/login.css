@@ -1,0 +1,30 @@
+body {
+    background-color: black;
+}
+
+
+form.container {
+    display:  unset;
+}
+table {
+    width: 100%;
+}
+table input {
+margin: 1rem;
+}
+.content h1 {
+    font-size: 3rem;
+}
+.content {
+    height: unset;
+}
+@media screen and (min-width: 768px){
+
+    .content h1 {
+        font-size: 3.6rem;
+    }
+table{
+    margin: 0 auto;
+    width: 50%; 
+}
+}
